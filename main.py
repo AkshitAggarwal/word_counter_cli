@@ -1,6 +1,5 @@
 """
-Author: Akshit Aggarwal
-Date: 21/01/2025
+Word counter CLI tool.
 """
 
 import typer
@@ -18,19 +17,17 @@ def main(
     """Main function for the script."""
     output: str = ""
     with open(file_name, encoding="utf-8") as f:
+        file_content = f.read()
+        lines = file_content.split("\n")
+        words = file_content.split()
         if count_lines:
-            lines = f.readlines()
             output = output + f"{len(lines)} lines"
 
         if count_words:
-            words = f.read().split()
-            print(words)
             output = output + f" {len(words)} words"
 
         if count_characters:
-            characters = f.read()
-            print(characters)
-            output = output + f" {len(characters)} characters"
+            output = output + f" {len(file_content)} characters"
 
     print(f"{output.strip()}.")
 
