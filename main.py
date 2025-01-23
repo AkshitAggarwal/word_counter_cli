@@ -10,7 +10,7 @@ app = typer.Typer()
 
 @app.command()
 def main(
-    file_name: str = None,
+    file_name: Annotated[str, typer.Option("--files", "-f")] = None,
     count_lines: Annotated[bool, typer.Option("--lines", "-l")] = False,
     count_words: Annotated[bool, typer.Option("--words", "-w")] = False,
     count_bytes: Annotated[bool, typer.Option("--characters", "-c")] = False,
